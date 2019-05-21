@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="bean">
+	<class name="User" table="USER">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="username" column="username" type="java.lang.String"/>
+		<property name="password" column="password" type="java.lang.String"/>
+	 <property name="birthday" column="birthday" type="date"/>
+		<property name="address" column="address" type="java.lang.String"/>
+		<property name="orderNumber" column="order_number" type="java.lang.String"/>
+		<property name="sex" column="sex" type="boolean"/>
+		<property name="trueName" column="true_name" type="java.lang.String"/>
+		<property name="email" column="email" type="java.lang.String"/>
+		<property name="telephone" column="telephone" type="java.lang.String"/>
+		<property name="nickName" column="nick_name" type="java.lang.String"/> 
+		<property name="picture" column="picture" type="java.lang.String"/> 
+	</class>
+	
+</hibernate-mapping>

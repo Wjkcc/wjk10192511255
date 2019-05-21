@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+   http://www.springframework.org/schema/tx 
+   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+   http://www.springframework.org/schema/context      
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">    
+   
+     <bean name="cartActionBean" class="action.cartAction"> 
+    	<property name="cartService" ref="cartServiceImpl" /> 
+    	<property name="productService" ref="productServiceImpl" /> 
+     
+    </bean>
+    
+	 <bean name="cartServiceImpl" class="service.impl.cartServiceImpl">
+      <property name="cartDao" ref="cartDaoImpl" /> 
+    </bean>
+	<bean name="cartDaoImpl" class="dao.impl.cartDaoImpl">
+        <property name="sessionFactory" ref="sf" />
+    </bean> 
+   <bean name="orderActionBean" class="action.orderAction"> 
+        <property name="cartService" ref="cartServiceImpl" /> 
+    	<property name="orderService" ref="orderServiceImpl" /> 
+    	<property name="productService" ref="productServiceImpl" /> 
+    	<property name="userService" ref="userServiceImpl" /> 
+    </bean>
+    
+	 <bean name="orderServiceImpl" class="service.impl.orderServiceImpl">
+      <property name="orderDao" ref="orderDaoImpl" /> 
+    </bean>
+	<bean name="orderDaoImpl" class="dao.impl.orderDaoImpl">
+        <property name="sessionFactory" ref="sf" />
+    </bean> 
+    <bean name="commentActionBean" class="action.commentAction"> 
+    	<property name="commentService" ref="commentServiceImpl" /> 
+    	<property name="productService" ref="productServiceImpl" /> 
+    	<property name="userService" ref="userServiceImpl" /> 
+    </bean>
+    
+	 <bean name="commentServiceImpl" class="service.impl.commentServiceImpl">
+      <property name="commentDao" ref="commentDaoImpl" /> 
+    </bean>
+	<bean name="commentDaoImpl" class="dao.impl.commentDaoImpl">
+        <property name="sessionFactory" ref="sf" />
+    </bean>  
+ <bean name="productActionBean" class="action.productAction"> 
+    	<property name="productService" ref="productServiceImpl" /> 
+    </bean>
+    
+	 <bean name="productServiceImpl" class="service.impl.productServiceImpl">
+      <property name="productDao" ref="productDaoImpl" /> 
+    </bean>
+	<bean name="productDaoImpl" class="dao.impl.productDaoImpl">
+        <property name="sessionFactory" ref="sf" />
+    </bean>
+ 
+    <bean name="userActionBean" class="action.userAction">
+    	<property name="userService" ref="userServiceImpl" /> 
+    </bean>
+    
+	 <bean name="userServiceImpl" class="service.impl.userServiceImpl">
+      <property name="userDao" ref="userDaoImpl" /> 
+    </bean>
+	<bean name="userDaoImpl" class="dao.impl.userDaoImpl">
+        <property name="sessionFactory" ref="sf" />
+    </bean>
+
+	<bean name="sf"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<property name="mappingResources">
+			<list>
+				<value>bean/User.hbm.xml</value>
+				<value>bean/Product.hbm.xml</value>
+					<value>bean/Comment.hbm.xml</value>
+					<value>bean/Order.hbm.xml</value>
+					<value>bean/Cart.hbm.xml</value>
+					<value>bean/Ppicture.hbm.xml</value>
+			</list>
+		</property>
+ 
+	    <property name="schemaUpdate">  
+	        <value>true</value>  
+	    </property>  
+	    		
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.show_sql=true
+				hbm2ddl.auto=update
+   			</value>
+		</property>
+		  
+	</bean>    
+        
+        
+    <bean name="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/bodybuildingshopping?characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>	    
+</beans>

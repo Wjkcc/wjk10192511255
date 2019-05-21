@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+  
+  <constant name="struts.objectFactory" value="spring"/>
+  
+  <package name="basicstruts" extends="struts-default">
+  
+  <action name="addUser" class="userActionBean" method="add">
+   	<result name="success" type="redirectAction">listProduct?page.start=0?page.count=8</result>
+   
+  </action>
+  <action name="listCommentByU" class="commentActionBean" method="listCommentByU">
+    <result name="success">WEB-INF/jsp/commentU.jsp</result>
+   
+  </action>
+  <action name="checkUser" class="userActionBean" method="check">
+  	<result name="success" type="redirectAction">listProduct?page.start=0?page.count=8</result>
+  	<result name="error">WEB-INF/jsp/error.jsp</result>
+  </action>
+  <action name="user" class="userActionBean" method="getOne">
+  	<result name="success" >WEB-INF/jsp/user.jsp</result>
+  	<result name="error" >WEB-INF/jsp/error.jsp</result>
+  </action>
+   <action name="ss" class="userActionBean" method="ss">
+  	<result name="success" >WEB-INF/jsp/load.jsp</result>
+  </action>
+  <action name="ex" class="userActionBean" method="ex">
+  	<result name="success" >WEB-INF/jsp/upload.jsp</result>
+  </action>
+  <action name="login" class="userActionBean" method="login">
+  	<result name="login">WEB-INF/jsp/register.jsp</result>
+  </action>
+  <action name="listProduct" class="productActionBean" method="list">
+  	<result name="success">WEB-INF/jsp/main.jsp</result>
+  </action>
+  <action name="listProductOne" class="productActionBean" method="listOne">
+  	<result name="success">WEB-INF/jsp/main.jsp</result>
+  </action>
+  <action name="getProduct" class="productActionBean" method="product">
+  	<result name="success">WEB-INF/jsp/product.jsp</result>
+  	<result name="login">WEB-INF/jsp/load.jsp</result>
+  </action>
+  <action name="upload" class="userActionBean" method="upload">
+  	<result name="success">WEB-INF/jsp/success.jsp</result>
+  	<result name="error">WEB-INF/jsp/error.jsp</result>
+  </action>
+  <action name="quit" class="userActionBean" method="quit">
+  	<result name="success" type="redirectAction">listProduct</result>
+  </action>
+  <action name="listCommentByP" class="commentActionBean" method="listCommentByP">
+  	<result name="success">WEB-INF/jsp/comment.jsp</result>
+  </action>
+  <action name="listProductC" class="productActionBean" method="listProductByC">
+  	<result name="success">WEB-INF/jsp/productC.jsp</result>
+  </action>
+  <action name="tt" class="orderActionBean" method="tt">
+  	<result name="success" >WEB-INF/jsp/order.jsp</result>
+  </action>
+   <action name="tts" class="orderActionBean" method="tts">
+  	<result name="success" >WEB-INF/jsp/order.jsp</result>
+  </action>
+  <action name="order" class="orderActionBean" method="order">
+  	<result name="success">WEB-INF/jsp/success.jsp</result>
+  </action>
+ 
+  <action name="listOrderByU" class="orderActionBean" method="listOrderByU">
+  	<result name="success">WEB-INF/jsp/orderU.jsp</result>
+  </action>
+  <action name="test" class="orderActionBean" method="test">
+  	<result name="success">WEB-INF/jsp/test.jsp</result>
+  </action>
+  <action name="cc" class="commentActionBean" method="cc">
+  	<result name="success" >WEB-INF/jsp/commentA.jsp</result>
+  </action>
+  <action name="commentA" class="commentActionBean" method="commentA">
+  	<result name="success">WEB-INF/jsp/success.jsp</result>
+  </action>
+  <action name="testp" class="productActionBean" method="testp">
+  	<result name="success">WEB-INF/jsp/testp.jsp</result>
+  </action>
+  <action name="ListCartByU" class="cartActionBean" method="ListCartByU">
+  	<result name="success">WEB-INF/jsp/cartByU.jsp</result>
+  	<result name="error">WEB-INF/jsp/error.jsp</result>
+  </action>
+  <action name="saveCartP" class="cartActionBean" method="saveCartP">
+ 	<result name="success">WEB-INF/jsp/product.jsp</result>
+  </action>
+  <action name="deleteP" class="cartActionBean" method="deleteP">
+  	<result name="success" type="redirectAction">ListCartByU</result>
+  </action>
+  <action name="checkUserName" class="userActionBean" method="checkUserName">
+  	<result name="success">WEB-INF/jsp/checksuccess.jsp</result>
+  	<result name="error">WEB-INF/jsp/checkerror.jsp</result>
+  	</action>
+  	 <action name="ListProducts" class="productActionBean" method="ListProducts">
+  	<result name="success">WEB-INF/jspg/productg.jsp</result>  	  
+  </action>
+   <action name="listUser" class="userActionBean" method="listUser">
+  	<result name="success">WEB-INF/jspg/userg.jsp</result> 	 
+  </action>
+   <action name="gl" class="userActionBean" method="gl">
+  	<result name="gl">WEB-INF/jspg/userg.jsp</result>  	  
+  </action>
+   <action name="gls" class="userActionBean" method="gl">
+  	<result name="gl">WEB-INF/jspg/g.jsp</result>  	  
+  </action>
+   <action name="listComment" class="commentActionBean" method="listComment">
+  	<result name="success">WEB-INF/jspg/usercommentg.jsp</result> 	 
+  </action>
+    <action name="listOrder" class="orderActionBean" method="listOrder">
+  	<result name="success">WEB-INF/jspg/userorderg.jsp</result> 	
+  </action>
+   <action name="deleteo" class="orderActionBean" method="deleteo">
+  	<result name="success" type="redirectAction">listOrder</result> 
+  </action>
+   <action name="listOrders" class="orderActionBean" method="listOrders">
+  	<result name="success">WEB-INF/jspg/ordergs.jsp</result> 
+  </action>
+   <action name="deleteos" class="orderActionBean" method="deleteo">
+  	<result name="success" type="redirectAction">listOrders</result> 
+  </action>
+   <action name="deletep" class="productActionBean" method="deletep">
+  	<result name="success" type="redirectAction">ListProducts</result> 
+  </action>
+    <action name="getp" class="productActionBean" method="getp">
+  	<result name="success" >WEB-INF/jspg/updatep.jsp</result> 
+  </action>
+   <action name="getps" class="productActionBean" method="getps">
+  	<result name="success" >WEB-INF/jspg/addp.jsp</result> 
+  </action>
+   <action name="updatep" class="productActionBean" method="updatep">
+  	<result name="success">WEB-INF/jspg/g.jsp</result> 
+  </action>
+   <action name="addp" class="productActionBean" method="savep">
+  	<result name="success">WEB-INF/jspg/g.jsp</result> 
+  </action>
+  <action name="deleteu" class="userActionBean" method="deleteu">
+  	<result name="success" type="redirectAction">listUser</result> 
+  </action>
+   <action name="deletec" class="commentActionBean" method="deletec">
+  	<result name="success" type="redirectAction">listComment</result> 
+  </action>
+</package>
+</struts>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="bean">
+	<class name="Product" table="PRODUCT">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="p_name" type="java.lang.String"/>
+		<property name="pid" column="p_id" type="java.lang.String"/>
+	 <property name="psize" column="p_size" type="java.lang.String"/>
+		<property name="cid" column="c_id" type="java.lang.Integer"/>
+		<property name="picture" column="picture" type="java.lang.String"/>
+		<property name="price" column="price" type="java.lang.Float"/>
+		<property name="pinformation" column="p_information" type="java.lang.String"/>
+		<property name="buynumbers" column="buy_numbers" type="java.lang.Integer"/>
+		<property name="good" column="good" type="java.lang.Integer"/>
+		<property name="trueName" column="true_name" type="java.lang.String"/>
+		
+		
+		
+	</class>
+	
+</hibernate-mapping>
