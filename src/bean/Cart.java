@@ -22,7 +22,5 @@ public class Cart {
 	}
 	private int pid;
 	private int uid;
-	private int test;
-	private String gitTest;
 
 }
