@@ -22,6 +22,6 @@ public class Cart {
 	}
 	private int pid;
 	private int uid;
-	private int tes;
+	private int test;
 
 }
